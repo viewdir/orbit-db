@@ -58,9 +58,9 @@ const openDatabase = () => {
         })
     }
 
-    // db.events.on('synced', () => getData())
+    db.events.on('synced', () => getData())
 
-    // db.events.on('ready', () => getData())
+    db.events.on('ready', () => getData())
 
     // Start query loop when the databse has loaded its history
     // db.load(5)
