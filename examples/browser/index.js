@@ -37,7 +37,6 @@ const openDatabase = () => {
     const query = (value) => {
       // Set a key-value pair
       db.put(key, value)
-        .then(() => getData())
         .catch((e) => handleError(e))
     }
 
@@ -62,11 +61,6 @@ const openDatabase = () => {
 
     db.events.on('ready', () => getData())
 
-    // Start query loop when the databse has loaded its history
-    // db.load(5)
-    //   .then(() => {
-    //     setInterval(query, interval)
-    //   })
     document.querySelector('textarea').addEventListener('keyup', (event) => {
       query(document.querySelector('textarea').value)
     })
